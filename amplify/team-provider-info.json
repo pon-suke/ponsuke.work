@@ -1,15 +1,23 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-ponsukework-dev-214651-authRole",
-      "UnauthRoleArn": "arn:aws:iam::703717242535:role/amplify-ponsukework-dev-214651-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::703717242535:role/amplify-ponsukework-dev-214651-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-ponsukework-dev-214651-deployment",
-      "UnauthRoleName": "amplify-ponsukework-dev-214651-unauthRole",
-      "StackName": "amplify-ponsukework-dev-214651",
-      "StackId": "arn:aws:cloudformation:us-east-1:703717242535:stack/amplify-ponsukework-dev-214651/83b69000-8efa-11eb-ae2f-0a6046b66d41",
-      "AmplifyAppId": "d3b9o6xz5afoxa"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ponsukework-dev-214651-authRole",
+            "UnauthRoleArn": "arn:aws:iam::703717242535:role/amplify-ponsukework-dev-214651-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::703717242535:role/amplify-ponsukework-dev-214651-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-ponsukework-dev-214651-deployment",
+            "UnauthRoleName": "amplify-ponsukework-dev-214651-unauthRole",
+            "StackName": "amplify-ponsukework-dev-214651",
+            "StackId": "arn:aws:cloudformation:us-east-1:703717242535:stack/amplify-ponsukework-dev-214651/83b69000-8efa-11eb-ae2f-0a6046b66d41",
+            "AmplifyAppId": "d3b9o6xz5afoxa"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3b9o6xz5afoxa",
+                    "type": "manual"
+                }
+            }
+        }
     }
-  }
 }

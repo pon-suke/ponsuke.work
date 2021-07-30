@@ -6,9 +6,10 @@
     "framework": "react",
     "config": {
       "SourceDir": "src",
-      "DistributionDir": "build",
+      "DistributionDir": ".next",
       "BuildCommand": "npm run build",
-      "StartCommand": "npm start"
+      "StartCommand": "npm start",
+      "ServerlessContainers": false
     }
   },
   "providers": [

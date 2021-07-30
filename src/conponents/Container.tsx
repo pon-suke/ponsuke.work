@@ -3,15 +3,10 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Contents from "./Contents";
 import SideContents from "./SideContents";
-
-interface Props {
-  p: String;
-}
+import PageNavi from "./PageNavi";
 
 function Container(props) {
   let blog = props.blog.contents;
-  // console.log("container")
-  // console.log(props);
   return (
     <>
       <div id="main">
@@ -31,7 +26,9 @@ function Container(props) {
           </Link>
         ))}
       </div>
-      <SideContents data={props.side} />
+      <PageNavi idList={props.idList} params={props.params} class={"sp_only"}/>
+      <SideContents data={props.side} counter={props.counter}/>
+      <PageNavi idList={props.idList} params={props.params} class={"pc_only"}/>
     </>
   );
 }

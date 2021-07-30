@@ -54,7 +54,7 @@ body {
 #header {
   position: relative;
   width: 100%;
-  background: url(https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/nYLlFBGTN94tbcA4jKZL/pub/d3PsLlagWT6TxffpUAdg.png)
+  background: url(https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/52f527e9bf22406a87bd7271faa3b3ad/d3PsLlagWT6TxffpUAdg.png)
     center top / contain no-repeat;
 }
 #header:before {
@@ -64,6 +64,7 @@ body {
 }
 #header:hover {
   opacity: 0.9;
+  cursor: pointer;
 }
 
 #header h1 {
@@ -122,9 +123,48 @@ body {
   float: right;
 }
 
-#page_navi {
+#pageNavi {
   clear: both;
   text-align: center;
+}
+
+/*p-pagenavi base*/
+.p-pagenavi {
+  clear: both;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.p-pagenavi a,
+.p-pagenavi span {
+  color: #999;
+  background-color: #fff;
+  border: solid 1px #e0e0d2;
+  padding: 8px 15px;
+  margin: 0 2px;
+  white-space: nowrap;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+}
+
+.p-pagenavi span.current {
+  color: #fff;
+  background-color: #66cccc;
+  border-color: #66cccc;
+  font-weight: bold;
+}
+
+.p-pagenavi span:hover {
+  color: #fff;
+  background-color: #999;
+  border-color: #999;
 }
 
 #footer {
@@ -159,6 +199,25 @@ body {
   outline: none;
   box-shadow: inset 1px 1px 2px 0 #c9c9c9;
 }
+#commentSubmit {
+  display: inline-block;
+  border-radius: 5%; /* 角丸       */
+  font-size: 13pt; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 8px 15px; /* 余白       */
+  background: #66cccc; /* 背景色     */
+  color: #ffffff; /* 文字色     */
+  line-height: 1em; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
+  border: 2px solid #66cccc; /* 枠の指定 */
+  margin: 2px 2px;
+}
+#commentSubmit:hover {
+  box-shadow: none; /* カーソル時の影消去 */
+  color: #66cccc; /* 背景色     */
+  background: #ffffff; /* 文字色     */
+}
 
 .content {
   margin-bottom: 20px;
@@ -169,6 +228,12 @@ body {
 
 .maincontent {
   font-size: 120%;
+}
+.articleList:hover {
+  opacity: 0.7;
+}
+.articleList {
+  cursor: pointer;
 }
 
 .entry_header {
@@ -282,15 +347,7 @@ body {
   color: black;
 }
 
-.ThumbnailImage {
-  float: left;
-  min-width: 250px;
-  width: 40%;
-  height: 200px;
-  padding: 5px 15px 5px 0px;
-  object-fit: cover;
-}
-.articleList img {
+img.ThumbnailImage {
   float: left;
   min-width: 250px;
   width: 40%;
@@ -338,7 +395,7 @@ body {
     margin: 10px 0px 10px 0px;
   }
 
-  .ThumbnailImage {
+  img.ThumbnailImage {
     float: left;
     width: 100%;
     height: 150px;

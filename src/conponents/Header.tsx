@@ -1,11 +1,12 @@
 import * as React from "react";
+import Link from "next/link";
 
 const Header: React.FC = () => (
-  <a href="/">
+  <Link href="/">
     <div id="header">
       <h1 className="noDecoration">pon&nbsp;suke人生リークBlog</h1>
     </div>
-  </a>
+  </Link>
 );
 
 export default Header;
