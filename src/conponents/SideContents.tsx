@@ -1,6 +1,5 @@
 import * as React from "react";
 import Contents from "./Contents";
-import Link from "next/link";
 import AccessCounter from "./AccessCounter";
 
 function SideContents(props) {
