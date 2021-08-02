@@ -2,7 +2,6 @@ import * as React from "react";
 import Contents from "../conponents/Contents";
 import MetaTags from "../conponents/MetaTags";
 import Header from "../conponents/Header";
-import Container from "../conponents/Container";
 import SideContents from "../conponents/SideContents";
 import { client } from "../conponents/client";
 import ContentNavi from "../conponents/ContentNavi";
