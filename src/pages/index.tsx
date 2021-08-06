@@ -22,8 +22,8 @@ function Index(props) {
     <div id="wrapper">
       <MetaTags
         title={"pon suke人生リークBlog"}
-        description={"ディスクリプション"}
-        keyword={"キーワード"}
+        description={"pon sukeの人生をリークしていくよ！！失踪疾走！"}
+        keyword={"失踪者"}
         image={
           "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/52f527e9bf22406a87bd7271faa3b3ad/d3PsLlagWT6TxffpUAdg.png"
         }
