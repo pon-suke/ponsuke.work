@@ -16,14 +16,14 @@
         }
         const date = document.getElementById("commentDate");
         date.value = new Date().toISOString();
-        this.parentNode.insertBefore(loading, this.nextSibling);
-        commentLoading.style.display = "block";
+        //this.parentNode.insertBefore(loading, this.nextSibling);
+        commentLoading.style.display = "flex";
         return true;
     }
 
     window.onload = () => {
         response.onload = () => {
-            request.parentNode.removeChild(loading);
+            //request.parentNode.removeChild(loading);
             request.elements[0].value = ""
             request.elements[1].value = ""
             commentLoading.style.display = "none";

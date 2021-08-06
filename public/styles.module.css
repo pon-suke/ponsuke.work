@@ -222,7 +222,6 @@ body {
 #commentLoading {
   display: none;
   text-align: center;
-  display: flex;
   align-items: center;
 }
 #commentLoading span {
