@@ -399,6 +399,11 @@ body {
   width: 5%;
 }
 
+.comment_body {
+  padding: 5px 12px 0px 12px;
+  clear: both;
+}
+
 .noDecoration {
   text-decoration: none;
   color: black;
