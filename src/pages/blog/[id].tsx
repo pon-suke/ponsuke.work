@@ -1,15 +1,19 @@
 import * as React from "react";
-import Contents from "../conponents/Contents";
-import MetaTags from "../conponents/MetaTags";
-import Header from "../conponents/Header";
-import SideContents from "../conponents/SideContents";
-import { client } from "../conponents/client";
-import ContentNavi from "../conponents/ContentNavi";
-import Footer from "../conponents/Footer";
-import CommentForm from "../conponents/CommentForm";
+import Contents from "../../conponents/Contents";
+import MetaTags from "../../conponents/MetaTags";
+import Header from "../../conponents/Header";
+import SideContents from "../../conponents/SideContents";
+import { Client } from "../../conponents/Client";
+import ContentNavi from "../../conponents/ContentNavi";
+import Footer from "../../conponents/Footer";
+import CommentForm from "../../conponents/CommentForm";
+import CommentField from "../../conponents/CommentField";
 
+interface id {
+  id: string;
+}
 interface ResponseType {
-  contents: String;
+  contents: Array<id>;
   totalCount: number;
   offset: number;
   limit: number;
@@ -42,7 +46,8 @@ function Page(props) {
             date={blog.updatedAt}
             class={"maincontent"}
           />
-          <CommentForm id={blog.id}/>
+          <CommentField id={blog.id} />
+          <CommentForm id={blog.id} />
         </div>
         <ContentNavi idList={props.idList} id={blog.id} class="sp_only" />
         <SideContents data={props.side} counter={props.counter} />
@@ -53,21 +58,32 @@ function Page(props) {
   );
 }
 
-export async function getServerSideProps(context: { query: any }) {
-  const param = context.query;
-  const { id } = context.query;
-  console.log("id " + id);
-
-  const data = await client.get<ResponseType>({
+export async function getStaticPaths() {
+  const idList = await Client.get<ResponseType>({
     endpoint: "diary",
-    contentId: id,
+    queries: { limit: 10e10, fields: "id" },
+  });
+  const paths = idList.contents.map((e) => ({
+    params: { id: e.id },
+  }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  // console.log(params);
+  const idQuery = params.id;
+  console.log("id " + idQuery);
+
+  const data = await Client.get<ResponseType>({
+    endpoint: "diary",
+    contentId: idQuery,
   });
 
-  const sideData = await client.get<ResponseType>({
+  const sideData = await Client.get<ResponseType>({
     endpoint: "side",
   });
 
-  const idList = await client.get<ResponseType>({
+  const idList = await Client.get<ResponseType>({
     endpoint: "diary",
     queries: { limit: 10e10, fields: "id" },
   });
@@ -75,7 +91,7 @@ export async function getServerSideProps(context: { query: any }) {
   const spreadSheetData = await fetch(process.env.SS_URL)
     .then((res) => res.json())
     .catch(() => null);
-    // console.log(spreadSheetData);
+  // console.log(spreadSheetData);
 
   if (!data) {
     return {

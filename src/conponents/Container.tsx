@@ -10,7 +10,7 @@ function Container(props) {
     <>
       <div id="main">
         {blog.map((blog) => (
-          <Link key={blog.id} href={`${blog.id}`}>
+          <Link key={blog.id} href={`/blog/${blog.id}`}>
             <div>
               <Contents
                 key={blog.id}

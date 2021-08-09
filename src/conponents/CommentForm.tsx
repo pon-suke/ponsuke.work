@@ -39,7 +39,7 @@ function CommentForm(props) {
       </form>
 
       <iframe name="response" id="response"></iframe>
-      <script id="hge" src="comment.js"></script>
+      <script id="hge" src="/comment.js"></script>
     </>
   );
 }

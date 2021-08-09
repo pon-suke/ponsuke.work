@@ -22,7 +22,7 @@ function contentNavi(props) {
             &emsp;
           </>
         ) : undefined}
-        <Link href="/">
+        <Link href="/p/1">
           <span>ホーム</span>
         </Link>
         {idIndex < totalCount - 1 ? (

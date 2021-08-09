@@ -29,7 +29,7 @@ function MetaTags({ title, description, keyword, image, url }: Props) {
       <link rel="canonical" href={url} />
       <link rel="shortcut icon" href={"/favicon.ico"} />
       <link rel="apple-touch-icon" href={"/favicon.ico"} />
-      <link rel="stylesheet" href="styles.module.css" />
+      <link rel="stylesheet" href="/styles.module.css" />
     </Head>
   );
 }
