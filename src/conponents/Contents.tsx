@@ -1,19 +1,45 @@
 import * as React from "react";
 
 function Contents(props) {
-  let createInnerHTML = (str) => {
+  const createInnerHTML = (str: string) => {
     return { __html: str.replace(/---/g, "<hr>") };
   };
-  let ReplaceTags = (str) => {
-    let tmp = str.replace(/(<br>){1,}/g, "$n$");
-    let esc = tmp.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+  const ReplaceTags = (str: string) => {
+    const tmp = str.replace(/(<br>){1,}/g, "$n$");
+    const esc = tmp.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
     return esc.replace(/\$n\$/g, "<br>");
   };
+  const unEscapeHTML = (str: string) => {
+    return str
+      .replace(/(&lt;)/g, "<")
+      .replace(/(&gt;)/g, ">")
+      .replace(/(&quot;)/g, '"')
+      .replace(/(&#39;)/g, "'")
+      .replace(/(&amp;)/g, "&")
+      .replace(/\\'/g, "'")
+      .replace(/\\"/g, '"')
+      .replace(/\\\//g, "/")
+      .replace(/\\x3c/g, "<")
+      .replace(/\\x3e/g, ">")
+      .replace(/\\\\/g, "\\");
+  };
+  const replaceScript = (str: string) => {
+    const strs = str.split("$$").map((e) => {
+      if (e.startsWith("script")) {
+        return unEscapeHTML(e.slice(6).replace(/<br>|&nbsp;/g, ""));
+      } else if (e.startsWith("sourcecode")) {
+        return unEscapeHTML(e.slice(10).replace(/&nbsp;/g, ""));
+      } else {
+        return e;
+      }
+    });
+    return strs.join("");
+  };
 
-  let cls = props.class + "";
-  let caption = props.text.split(/---/)[0] + "...";
-  let body = cls.indexOf("articleList")
-    ? createInnerHTML(props.text + "<hr/>")
+  const cls = props.class + "";
+  const caption = props.text.split(/---/)[0] + "...";
+  const body = cls.indexOf("articleList")
+    ? createInnerHTML(replaceScript(props.text) + "<hr/>")
     : createInnerHTML(
         `<img class='ThumbnailImage' src=' ${props.img}'>${ReplaceTags(
           caption
