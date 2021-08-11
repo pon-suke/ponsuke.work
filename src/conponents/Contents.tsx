@@ -64,6 +64,7 @@ function Contents(props) {
                     <span>{e.date}</span>
                   </h3>
                   <div className="comment_body">{e.comment}</div>
+                  <hr />
                 </>
               ) : (
                 <div

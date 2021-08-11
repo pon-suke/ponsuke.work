@@ -8,7 +8,7 @@ function CommentForm(props) {
       <form
         id="comment_form"
         method="POST"
-        action="https://script.google.com/macros/s/AKfycbwa4kwbrmRLGJ1pZL-gUv1WMhjadTOnhrx_tUhKE3HOC6QYAPIVqQRPDM-izH0KDe9W/exec"
+        action={process.env.SS_POST_URL}
         target="response"
       >
         <div>名前</div>
