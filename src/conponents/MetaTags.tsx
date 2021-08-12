@@ -30,6 +30,7 @@ function MetaTags({ title, description, keyword, image, url }: Props) {
       <link rel="shortcut icon" href={"/favicon.ico"} />
       <link rel="apple-touch-icon" href={"/favicon.ico"} />
       <link rel="stylesheet" href="/styles.module.css" />
+      <script src="/onload.js"></script>
     </Head>
   );
 }
