@@ -127,6 +127,10 @@ pre {
   margin: 10px 0px 10px 10px;
 }
 
+#side iframe {
+  border: 0px;
+}
+
 #profile img {
   max-width: 100px;
   width: 30%;

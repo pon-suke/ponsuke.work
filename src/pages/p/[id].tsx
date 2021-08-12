@@ -12,7 +12,7 @@ interface ResponseType {
   limit: number;
 }
 
-function Index(props) {
+function Page(props) {
   const blog = props.blog;
   const side = props.side;
   const idList = props.idList;
@@ -91,4 +91,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default Index;
+export default Page;
