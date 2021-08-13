@@ -1,7 +1,13 @@
 import * as React from "react";
 
-function AccessCounter(props) {
-  const counter = props.counter;
+function AccessCounter({ counter }) {
+  // console.log(counter);
+  async function test() {
+    const response = await fetch("/api/example");
+    const data = await response.json();
+    console.log(data);
+  }
+  test();
 
   return (
     <div className={"content "}>
