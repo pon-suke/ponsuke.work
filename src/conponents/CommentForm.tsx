@@ -4,8 +4,10 @@ function CommentForm(props) {
   const pageID = props.id;
   const commentSended = () => {
     const commentLoading = document.getElementById("commentLoading");
-    const commentName = document.getElementById("commentName");
-    const comment = document.getElementById("comment");
+    const commentName = document.getElementById(
+      "commentName"
+    ) as HTMLInputElement;
+    const comment = document.getElementById("comment") as HTMLInputElement;
     const isSend = commentName.value && comment.value;
 
     commentLoading.style.display = "none";
@@ -18,14 +20,14 @@ function CommentForm(props) {
 
   const commentSending = () => {
     const commentLoading = document.getElementById("commentLoading");
-    const name = document.getElementById("commentName");
-    const comment = document.getElementById("comment");
+    const name = document.getElementById("commentName") as HTMLInputElement;
+    const comment = document.getElementById("comment") as HTMLInputElement;
 
     if (!name.value || !comment.value) {
       alert("名前とコメントを入力してください");
       return false;
     }
-    const date = document.getElementById("commentDate");
+    const date = document.getElementById("commentDate") as HTMLInputElement;
     date.value = new Date().toISOString();
     commentLoading.style.display = "flex";
     return true;
