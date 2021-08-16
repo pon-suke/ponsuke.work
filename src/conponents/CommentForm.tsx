@@ -4,15 +4,13 @@ function CommentForm(props) {
   const pageID = props.id;
   const commentSended = () => {
     const commentLoading = document.getElementById("commentLoading");
-    const commentName = document.getElementById(
-      "commentName"
-    ) as HTMLInputElement;
-    const comment = document.getElementById("comment") as HTMLInputElement;
-    const isSend = commentName.value && comment.value;
+    const name = document.getElementById("commentName") as HTMLInputElement;
+    const comment = document.getElementById("commentArea") as HTMLInputElement;
+    const isSend = name.value && comment.value;
 
     commentLoading.style.display = "none";
     if (isSend) {
-      commentName.value = "";
+      name.value = "";
       comment.value = "";
       location.reload();
     }
@@ -21,7 +19,8 @@ function CommentForm(props) {
   const commentSending = () => {
     const commentLoading = document.getElementById("commentLoading");
     const name = document.getElementById("commentName") as HTMLInputElement;
-    const comment = document.getElementById("comment") as HTMLInputElement;
+    const comment = document.getElementById("commentArea") as HTMLInputElement;
+
 
     if (!name.value || !comment.value) {
       alert("名前とコメントを入力してください");
@@ -55,7 +54,7 @@ function CommentForm(props) {
           <textarea
             className="comment_form"
             name="comment"
-            id="comment"
+            id="commentArea"
             placeholder="comment"
           ></textarea>
         </label>
