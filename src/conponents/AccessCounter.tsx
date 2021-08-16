@@ -15,59 +15,16 @@ function AccessCounter({ counter }) {
         {/* 合計：{counter.all}回 <br />
         今日：{counter.today}回 <br />
         昨日：{counter.yesterday}回<br /> */}
-        {/* <!--カウンタータグここから--> */}
-        <table cellPadding="0" cellSpacing="1" className="counter">
+        <table cellSpacing="0" cellPadding="0">
           <tr>
-            <td>
-              <table cellSpacing="1" cellPadding="0">
-                {/* 今日 */}
-                <tr>
-                  <td align="left">
-                    <img src="http://www.ezcounter.net/images/todayt.gif" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="left">
-                    <img
-                      src="http://www.ezcounter.net/tday-d28-f5-112/611a32ed74feb/"
-                      alt="アクセスカウンター"
-                    />
-                  </td>
-                </tr>
-                {/* 昨日 */}
-                <tr>
-                  <td align="left">
-                    <img src="http://www.ezcounter.net/images/yesterdayt.gif" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="left">
-                    <img
-                      src="http://www.ezcounter.net/yday-d28-f5-112/611a32ed74feb/"
-                      alt="アクセスカウンター"
-                    />
-                  </td>
-                </tr>
-                {/* 合計 */}
-                <tr>
-                  <td align="left">
-                    <img src="http://www.ezcounter.net/images/totalt.gif" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="left">
-                    <img
-                      src="http://www.ezcounter.net/total-d28-f6-112/611a32ed74feb/"
-                      alt="アクセスカウンター"
-                    />
-                  </td>
-                </tr>
-              </table>
-              <table cellPadding="0" cellSpacing="0"></table>
+            <td align="center">
+              <img
+                src="http://www.rays-counter.com/d491_f6_022/611a3ff6c44ef/"
+                alt="アクセスカウンター"
+              />
             </td>
           </tr>
         </table>
-        {/* <!--カウンタータグここまで--> */}
       </div>
       <div className="entry_footer"></div>
     </div>
