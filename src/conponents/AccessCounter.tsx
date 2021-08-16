@@ -5,7 +5,6 @@ function AccessCounter({ counter }) {
   async function test() {
     const response = await fetch("/api/example");
     const data = await response.json();
-    console.log(data);
   }
   test();
 

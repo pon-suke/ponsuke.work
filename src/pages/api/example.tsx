@@ -1,11 +1,12 @@
 export default async function example(req, res) {
-  console.log(req.headers.host);
+  console.log(req.client._server._connectionKey);
+  const ip = req.client._server._connectionKey;
   await fetch(process.env.SS_POST_URL, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: "ipAddress=" + req.headers.host,
+    body: "ipAddress=" + ip,
   })
     .then((response) => response.json())
     .then((data) => {
