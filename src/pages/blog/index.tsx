@@ -21,4 +21,14 @@ function index(params) {
   );
 }
 
+export async function getServerSideProps({ req }) {
+  console.log(req.headers); //see if you have those headers
+  return {
+    props: {
+      headers: req.headers,
+    },
+  };
+}
+
+
 export default index;

@@ -453,6 +453,17 @@ img.ThumbnailImage {
   height: 100% !important;
 }
 
+.counter {
+  border: #cccccc 1px dotted;
+  border-collapse: collapse;
+}
+.counter table {
+  border-collapse: collapse;
+}
+.counter img {
+  width: auto;
+}
+
 /* pc版 */
 @media screen and (min-width: 800px) {
   .sp_only {
