@@ -1,5 +1,5 @@
 export default async function example(req, res) {
-  console.log(req.client._server._connectionKey);
+  console.log(req.headers);
   const ip = req.client._server._connectionKey;
   await fetch(process.env.SS_POST_URL, {
     method: "POST", // or 'PUT'
