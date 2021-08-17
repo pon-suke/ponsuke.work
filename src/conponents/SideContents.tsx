@@ -7,7 +7,6 @@ function SideContents(props) {
 
   return (
     <div id="side">
-      開発環境
       {data.map((d) => (
         <Contents
           key={d.id}
