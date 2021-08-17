@@ -34,7 +34,7 @@ function Page(props) {
           description={caption}
           keyword={"キーワード"}
           image={blog.thumbnail.url}
-          url={`https://ponsuke.work/${blog.id}`}
+          url={`https://ponsuke.work/blog/${blog.id}`}
         />
         <Header />
         <div id="main">

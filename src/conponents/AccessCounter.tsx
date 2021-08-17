@@ -16,7 +16,7 @@ function AccessCounter({ counter }) {
         {/* 合計：{counter.all}回 <br />
         今日：{counter.today}回 <br />
         昨日：{counter.yesterday}回<br /> */}
-        <Script src="/fc2Counter.js"></Script>
+        <Script id="fc2scr" src="/fc2Counter.js"></Script>
         <span id="fc2Counter"></span>&nbsp;回
       </div>
       <div className="entry_footer"></div>
