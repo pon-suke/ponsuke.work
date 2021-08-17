@@ -21,7 +21,7 @@ function MetaTags({ title, description, keyword, image, url }: Props) {
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content={title} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@" />
+      <meta name="twitter:site" content="@ponsuke1012" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
@@ -31,6 +31,10 @@ function MetaTags({ title, description, keyword, image, url }: Props) {
       <link rel="apple-touch-icon" href={"/favicon.ico"} />
       <link rel="stylesheet" href="/styles.module.css" />
       <script src="/onload.js"></script>
+      <script
+        data-ad-client="ca-pub-4852357139979343"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
     </Head>
   );
 }
