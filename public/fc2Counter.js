@@ -6,7 +6,7 @@ if (!self._FC2COUNTER89495020_0) {
         show_graph: function (e) {
             if (this.graph_img == null) {
                 var img = this.graph_img = document.createElement('img');
-                img.src = 'http://panel.counter1.fc2.com/popup.php?id=89495020&main=0&lang=0';
+                img.src = 'https://panel.counter1.fc2.com/popup.php?id=89495020&main=0&lang=0';
                 img.style.visibility = 'hidden';
                 img.style.position = 'absolute';
                 img.style.zIndex = 10000;
@@ -83,12 +83,12 @@ if (!self._FC2COUNTER89495020_0) {
             }
             if (!current) {
                 document.write('<script type="text/javascript" language="javascript"'
-                    + ' src="http://counter1.fc2.com/counter_js.php?id=89495020&main=0&lang=0'
+                    + ' src="https://counter1.fc2.com/counter_js.php?id=89495020&main=0&lang=0'
                     + '&amp;visitor=' + this.visit_info()
                     + '" charset="UTF-8"></' + 'script>');
             } else {
                 const script = document.createElement('script');
-                script.src = "http://counter1.fc2.com/counter_js.php?id=89495020&main=0&lang=0&visitor=" + this.visit_info();
+                script.src = "https://counter1.fc2.com/counter_js.php?id=89495020&main=0&lang=0&visitor=" + this.visit_info();
                 const fc2cnt = document.getElementById("fc2Counter")
                 fc2cnt.appendChild(script);
             }
