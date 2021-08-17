@@ -18,6 +18,5 @@ module.exports = {
                 permanent: true,
             }
         ]
-    },
-    webpack5: false
+    }
 }
