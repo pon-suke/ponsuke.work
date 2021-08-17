@@ -453,15 +453,13 @@ img.ThumbnailImage {
   height: 100% !important;
 }
 
-.counter {
-  border: #cccccc 1px dotted;
-  border-collapse: collapse;
+.counter div {
+  text-align: center;
 }
-.counter table {
-  border-collapse: collapse;
-}
+
 .counter img {
   width: auto;
+  height: 20px;
 }
 
 /* pc版 */
