@@ -200,6 +200,24 @@ pre {
   color: #036;
 }
 
+#commentIconImage {
+  display: inline;
+  float: left;
+  height: 39px;
+}
+#commentFormBox {
+  width: 80%;
+}
+
+.commentIconList {
+  width: auto;
+  display: inline;
+}
+
+.Dropdown-root {
+  display: flex;
+}
+
 #comment_form {
   position: relative;
   width: 80%;
@@ -401,6 +419,13 @@ pre {
 .comment_block hr {
   /* padding: 0px 12px 5px 12px; */
   color: #f00;
+}
+
+.comment_block img {
+  /* padding: 0px 12px 5px 12px; */
+  padding: 3px;
+  float: left;
+  width: 5%;
 }
 
 .comment_header {

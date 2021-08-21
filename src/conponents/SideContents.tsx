@@ -17,7 +17,7 @@ function SideContents(props) {
           id="profile"
         />
       ))}
-      <AccessCounter counter={props.counter} />
+      <AccessCounter />
     </div>
   );
 }
