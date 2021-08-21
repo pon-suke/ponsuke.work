@@ -53,9 +53,9 @@ function CommentForm(props) {
   };
 
   const changeIcon = (e) => {
-    const iconImg = document.getElementById("commentIconImage");
-    iconImg.src = e.value;
-    const icon = document.getElementById("commentIcon");
+    const img = document.getElementById("commentIconImg") as HTMLImageElement;
+    img.src = e.value;
+    const icon = document.getElementById("commentIcon") as HTMLInputElement;
     icon.value = e.value;
     console.log(e);
   };
@@ -72,7 +72,7 @@ function CommentForm(props) {
         <div>
           アイコン
           <br />
-          <img id="commentIconImage" src={options[0].value} alt="icon" />
+          <img id="commentIconImg" src={options[0].value} alt="icon" />
           <Dropdown
             className="commentIconList"
             options={options}
@@ -98,12 +98,7 @@ function CommentForm(props) {
             placeholder="comment"
           ></textarea>
         </label>
-        <input
-          type="hidden"
-          name="icon"
-          id="commentIcon"
-          value={options[0].value}
-        />
+        <input type="hidden" name="icon" id="commentIcon" value={options[0].value} />
         <input type="hidden" name="number" value={pageID} />
         <input type="hidden" name="date" id="commentDate" value="" />
         <input id="commentSubmit" type="submit" value="送信" />
