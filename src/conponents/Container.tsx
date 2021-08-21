@@ -5,7 +5,7 @@ import SideContents from "./SideContents";
 import PageNavi from "./PageNavi";
 
 function Container(props) {
-  let blog = props.blog.contents;
+  const blog = props.blog.contents;
   return (
     <>
       <div id="main">
