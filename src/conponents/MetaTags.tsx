@@ -31,10 +31,10 @@ function MetaTags({ title, description, keyword, image, url }: Props) {
       <link rel="apple-touch-icon" href={"/favicon.ico"} />
       <link rel="stylesheet" href="/styles.module.css" />
       <script src="/onload.js"></script>
-      {/* <script
+      <script
         data-ad-client="ca-pub-4852357139979343"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script> */}
+      ></script>
     </Head>
   );
 }
