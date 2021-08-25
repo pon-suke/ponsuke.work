@@ -1,10 +1,8 @@
 import * as React from "react";
 import Link from "next/link";
 
-function contentNavi(props) {
-  const idList = props.idList.contents;
-  const totalCount = props.idList.totalCount;
-  const isNowIndex = (e) => e.id == props.id;
+function contentNavi({ idList, id, totalCount, Class }) {
+  const isNowIndex = (e) => e.id == id;
   const idIndex = idList.findIndex(isNowIndex);
   const beforeId = idIndex > 0 ? idList[idIndex - 1].id : "";
   const nextId = idIndex < totalCount - 1 ? idList[idIndex + 1].id : "";
@@ -13,7 +11,7 @@ function contentNavi(props) {
 
   return (
     <>
-      <div id="pageNavi" className={props.class + " p-pagenavi"}>
+      <div id="pageNavi" className={Class + " p-pagenavi"}>
         {idIndex > 0 ? (
           <>
             <Link href={beforeId}>

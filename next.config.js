@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     env: {
         // Reference a variable that was defined in the .env file and make it available at Build Time
@@ -15,6 +17,11 @@ module.exports = {
             {
                 source: "/",
                 destination: "/p/1",
+                permanent: true,
+            },
+            {
+                source: "/old",
+                destination: "/old/p/1",
                 permanent: true,
             }
         ]
