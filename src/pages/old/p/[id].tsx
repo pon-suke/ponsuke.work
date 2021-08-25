@@ -24,7 +24,7 @@ function Page({ blog, side, id }) {
         url={"https://ponsuke.work/"}
       />
       <Header />
-      <Container blog={blog} side={side} idList={idList} id={192 - id} old={true} />
+      <Container blog={blog} side={side} idList={idList} id={193 - id} old={true} />
       <Footer />
     </div>
   );
@@ -38,7 +38,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const offset = ((params.id ? params.id : 1) - 1) * 10;
+  const offset = 192 - ((params.id ? params.id : 1) - 1) * 10;
+  console.log(offset);
 
   const sideData = await Client.get<ResponseType>({
     endpoint: "side",
@@ -55,7 +56,7 @@ export async function getStaticProps({ params }) {
   }
   return {
     props: {
-      blog: spreadSheetData.data.reverse().slice(offset, offset + 9),
+      blog: spreadSheetData.data.slice(Math.max(offset - 10, 0), Math.min(offset, 192)).reverse(),
       side: sideData,
       id: params.id,
     },
