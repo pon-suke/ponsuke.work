@@ -4,30 +4,41 @@ import Contents from "./Contents";
 import SideContents from "./SideContents";
 import PageNavi from "./PageNavi";
 
-function Container(props) {
-  let blog = props.blog.contents;
+function Container({ blog, idList, side, id, old = false }) {
+  // console.log(blog);
   return (
     <>
       <div id="main">
         {blog.map((blog) => (
-          <Link key={blog.id} href={`/blog/${blog.id}`}>
-            <div>
+          <Link key={blog.id} href={(old ? "/old" : "") + `/blog/${blog.id}`}>
+            <a>
               <Contents
                 key={blog.id}
                 title={blog.title}
-                subtitle={blog.subtitle}
+                subtitle={blog.subTitle}
                 text={blog.main}
-                date={blog.updatedAt}
+                date={old ? blog.UpdatedDate : blog.updatedAt}
                 class={"articleList maincontent"}
-                img={blog.thumbnail.url}
+                img={blog.thumbnail ? blog.thumbnail.url : "/top.jpg"}
+                old={old}
               />
-            </div>
+            </a>
           </Link>
         ))}
       </div>
-      <PageNavi idList={props.idList} params={props.params} class={"sp_only"}/>
-      <SideContents data={props.side} counter={props.counter}/>
-      <PageNavi idList={props.idList} params={props.params} class={"pc_only"}/>
+      <PageNavi
+        totalCount={old ? idList.length : idList.totalCount}
+        id={id}
+        Class={"sp_only"}
+        old={old}
+      />
+      <SideContents data={side} />
+      <PageNavi
+        totalCount={old ? idList.length : idList.totalCount}
+        id={id}
+        Class={"pc_only"}
+        old={old}
+      />
     </>
   );
 }
