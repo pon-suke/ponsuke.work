@@ -3,7 +3,7 @@ import Contents from "./Contents";
 import AccessCounter from "./AccessCounter";
 
 function SideContents(props) {
-  let data = props.data.contents;
+  const data = props.data.contents;
 
   return (
     <div id="side">

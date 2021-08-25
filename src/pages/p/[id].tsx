@@ -28,13 +28,7 @@ function Page(props) {
         url={"https://ponsuke.work/"}
       />
       <Header />
-      <Container
-        blog={blog}
-        side={side}
-        idList={idList}
-        params={params}
-        counter={counter}
-      />
+      <Container blog={blog.contents} side={side} idList={idList} id={params.id} />
       <Footer />
     </div>
   );
@@ -45,9 +39,7 @@ export async function getStaticPaths() {
     endpoint: "diary",
     queries: { limit: 10e10, fields: "id" },
   });
-  const len = new Array(Math.ceil(idList.totalCount / 10))
-    .fill(1)
-    .map((n, i) => n + i);
+  const len = new Array(Math.ceil(idList.totalCount / 10)).fill(1).map((n, i) => n + i);
   const paths = len.map((e, index) => ({
     params: { id: (index + 1).toString() },
   }));

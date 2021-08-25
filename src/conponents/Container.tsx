@@ -4,30 +4,35 @@ import Contents from "./Contents";
 import SideContents from "./SideContents";
 import PageNavi from "./PageNavi";
 
-function Container(props) {
-  const blog = props.blog.contents;
+function Container({ blog, idList, side, id, old = false }) {
   return (
     <>
       <div id="main">
         {blog.map((blog) => (
-          <Link key={blog.id} href={`/blog/${blog.id}`}>
+          <Link key={blog.id} href={(old ? "/old" : "") + `/blog/${id}`}>
             <div>
               <Contents
                 key={blog.id}
                 title={blog.title}
                 subtitle={blog.subtitle}
                 text={blog.main}
-                date={blog.updatedAt}
+                date={blog.UpdatedDate}
                 class={"articleList maincontent"}
-                img={blog.thumbnail.url}
+                img={blog.thumbnail ? blog.thumbnail.url : "/top.jpg"}
+                old={old}
               />
             </div>
           </Link>
         ))}
       </div>
-      <PageNavi idList={props.idList} params={props.params} class={"sp_only"}/>
-      <SideContents data={props.side} counter={props.counter}/>
-      <PageNavi idList={props.idList} params={props.params} class={"pc_only"}/>
+      {/* <PageNavi idList={idList} params={params} class={"sp_only"}/> */}
+      <SideContents data={side} />
+      <PageNavi
+        totalCount={old ? idList.length : idList.totalCount}
+        id={id}
+        Class={"pc_only"}
+        old={old}
+      />
     </>
   );
 }
