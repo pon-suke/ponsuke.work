@@ -35,7 +35,7 @@ function Page({ blog, comment, side, id }) {
           description={caption}
           keyword={"キーワード"}
           image={"/top.jpg"}
-          url={`https://ponsuke.work/blog/${blog.id}`}
+          url={`https://ponsuke.work/old/blog/${blog.id}`}
         />
         <Header />
         <div id="main">

@@ -4,7 +4,7 @@ module.exports = {
     env: {
         // Reference a variable that was defined in the .env file and make it available at Build Time
         X_API_KEY: "9b30e206-4b28-4453-91f5-5d39d40d15a3",
-        SS_URL: "https://script.google.com/macros/s/AKfycbzAvyLZq8zl9ZOq_AkTyI7oY5AoLdXESHBegfYdUG9XSe7iEMEKU3WpwVbPPDbqXG7A/exec",
+        SS_URL: "https://script.google.com/macros/s/AKfycbzYqH8x3wJ0wkPGU8cHZ_JPKjJVCJpuE3nGV3PLkHbfXkUuuCq8JtswMNkuhWAFUTRy/exec",
         SS_POST_URL: "https://script.google.com/macros/s/AKfycbwa4kwbrmRLGJ1pZL-gUv1WMhjadTOnhrx_tUhKE3HOC6QYAPIVqQRPDM-izH0KDe9W/exec"
     },
     async redirects() {
@@ -21,6 +21,11 @@ module.exports = {
             },
             {
                 source: "/old",
+                destination: "/old/p/1",
+                permanent: true,
+            },
+            {
+                source: "/old/p",
                 destination: "/old/p/1",
                 permanent: true,
             }

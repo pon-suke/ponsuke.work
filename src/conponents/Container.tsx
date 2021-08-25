@@ -5,18 +5,19 @@ import SideContents from "./SideContents";
 import PageNavi from "./PageNavi";
 
 function Container({ blog, idList, side, id, old = false }) {
+  // console.log(blog);
   return (
     <>
       <div id="main">
         {blog.map((blog) => (
-          <Link key={blog.id} href={(old ? "/old" : "") + `/blog/${id}`}>
+          <Link key={blog.id} href={(old ? "/old" : "") + `/blog/${blog.id}`}>
             <div>
               <Contents
                 key={blog.id}
                 title={blog.title}
-                subtitle={blog.subtitle}
+                subtitle={blog.subTitle}
                 text={blog.main}
-                date={blog.UpdatedDate}
+                date={old ? blog.UpdatedDate : blog.updatedAt}
                 class={"articleList maincontent"}
                 img={blog.thumbnail ? blog.thumbnail.url : "/top.jpg"}
                 old={old}
@@ -25,7 +26,12 @@ function Container({ blog, idList, side, id, old = false }) {
           </Link>
         ))}
       </div>
-      {/* <PageNavi idList={idList} params={params} class={"sp_only"}/> */}
+      <PageNavi
+        totalCount={old ? idList.length : idList.totalCount}
+        id={id}
+        Class={"sp_only"}
+        old={old}
+      />
       <SideContents data={side} />
       <PageNavi
         totalCount={old ? idList.length : idList.totalCount}
