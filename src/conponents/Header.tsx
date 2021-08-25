@@ -11,9 +11,11 @@ const Header: React.FC = () => (
     ></Script>
     <AdSense.Google client="ca-pub-4852357139979343" /> */}
     <Link href="/p/1">
-      <div id="header">
-        <h1 className="noDecoration">pon&nbsp;suke人生リークBlog</h1>
-      </div>
+      <a>
+        <div id="header">
+          <h1 className="noDecoration">pon&nbsp;suke人生リークBlog</h1>
+        </div>
+      </a>
     </Link>
   </>
 );
