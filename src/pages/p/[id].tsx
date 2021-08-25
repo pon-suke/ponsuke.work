@@ -25,7 +25,7 @@ function Page(props) {
         description={"pon sukeの人生をリークしていくよ！！失踪疾走！"}
         keyword={"失踪者"}
         image={"/top.jpg"}
-        url={"https://ponsuke.work/"}
+        url={"https://ponsuke.work/old"}
       />
       <Header />
       <Container blog={blog.contents} side={side} idList={idList} id={params.id} />
