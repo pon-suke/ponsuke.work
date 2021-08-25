@@ -11,7 +11,7 @@ function Container({ blog, idList, side, id, old = false }) {
       <div id="main">
         {blog.map((blog) => (
           <Link key={blog.id} href={(old ? "/old" : "") + `/blog/${blog.id}`}>
-            <div>
+            <a>
               <Contents
                 key={blog.id}
                 title={blog.title}
@@ -22,7 +22,7 @@ function Container({ blog, idList, side, id, old = false }) {
                 img={blog.thumbnail ? blog.thumbnail.url : "/top.jpg"}
                 old={old}
               />
-            </div>
+            </a>
           </Link>
         ))}
       </div>
