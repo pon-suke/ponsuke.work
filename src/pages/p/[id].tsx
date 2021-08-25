@@ -25,16 +25,10 @@ function Page(props) {
         description={"pon sukeの人生をリークしていくよ！！失踪疾走！"}
         keyword={"失踪者"}
         image={"/top.jpg"}
-        url={"https://ponsuke.work/"}
+        url={"https://ponsuke.work/old"}
       />
       <Header />
-      <Container
-        blog={blog}
-        side={side}
-        idList={idList}
-        params={params}
-        counter={counter}
-      />
+      <Container blog={blog.contents} side={side} idList={idList} id={params.id} />
       <Footer />
     </div>
   );
@@ -45,9 +39,7 @@ export async function getStaticPaths() {
     endpoint: "diary",
     queries: { limit: 10e10, fields: "id" },
   });
-  const len = new Array(Math.ceil(idList.totalCount / 10))
-    .fill(1)
-    .map((n, i) => n + i);
+  const len = new Array(Math.ceil(idList.totalCount / 10)).fill(1).map((n, i) => n + i);
   const paths = len.map((e, index) => ({
     params: { id: (index + 1).toString() },
   }));
