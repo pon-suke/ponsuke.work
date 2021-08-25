@@ -51,7 +51,7 @@ function Page({ blog, comment, side, id }) {
         </div>
         {/* <ContentNavi idList={idList} id={id} class="sp_only" /> */}
         <SideContents data={side} />
-        <ContentNavi idList={idList} id={id} totalCount="192" Class="pc_only" />
+        <ContentNavi idList={idList} id={id} totalCount="192" Class="pc_only" old={true}/>
         <Footer />
       </div>
     </>
