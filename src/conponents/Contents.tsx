@@ -37,13 +37,13 @@ function Contents(props) {
   };
 
   const cls = props.class + "";
-  const caption = props.text.split(/---/)[0] + "...";
+  const caption = props.old
+    ? props.text.split(/日/)[0] + "..."
+    : props.text.split(/---/)[0] + "...";
   const body = cls.indexOf("articleList")
     ? createInnerHTML(replaceScript(props.text) + "<hr/>")
     : createInnerHTML(
-        `<img class='ThumbnailImage' src=' ${props.img}'>${ReplaceTags(
-          caption
-        )}<hr/>`
+        `<img class='ThumbnailImage' src=' ${props.img}'>${ReplaceTags(caption)}<hr/>`
       );
 
   return (
