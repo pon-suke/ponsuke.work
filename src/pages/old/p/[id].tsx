@@ -24,7 +24,7 @@ function Page({ blog, side, id }) {
         url={"https://ponsuke.work/"}
       />
       <Header />
-      <Container blog={blog} side={side} idList={idList} id={193 - id} old={true} />
+      <Container blog={blog} side={side} idList={idList} id={id} old={true} />
       <Footer />
     </div>
   );
