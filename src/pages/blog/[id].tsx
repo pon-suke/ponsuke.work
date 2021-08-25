@@ -20,12 +20,11 @@ interface ResponseType {
 }
 
 function Page(props) {
-  let removeTags = (str) => {
-    let esc = str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
-    return esc;
+  const removeTags = (str) => {
+    return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
   };
   let blog = props.blog;
-  let caption = removeTags(blog.main.split(/---/)[0] + "...");
+  const caption = removeTags(blog.main.split(/---/)[0] + "...");
   return (
     <>
       <div id="wrapper">
@@ -46,12 +45,22 @@ function Page(props) {
             date={blog.updatedAt}
             class={"maincontent"}
           />
-          <CommentField id={blog.id} />
+          <CommentField id={blog.id} comment={props.comment} />
           <CommentForm id={blog.id} />
         </div>
-        <ContentNavi idList={props.idList} id={blog.id} class="sp_only" />
+        <ContentNavi
+          idList={props.idList.contents}
+          id={blog.id}
+          totalCount={props.idList.totalCount}
+          Class="sp_only"
+        />
         <SideContents data={props.side} counter={props.counter} />
-        <ContentNavi idList={props.idList} id={blog.id} class="pc_only" />
+        <ContentNavi
+          idList={props.idList.contents}
+          id={blog.id}
+          totalCount={props.idList.totalCount}
+          Class="pc_only"
+        />
         <Footer />
       </div>
     </>
@@ -91,7 +100,6 @@ export async function getStaticProps({ params }) {
   const spreadSheetData = await fetch(process.env.SS_URL)
     .then((res) => res.json())
     .catch(() => null);
-  // console.log(spreadSheetData);
 
   if (!data) {
     return {
@@ -102,6 +110,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       blog: data,
+      comment: spreadSheetData.comment.filter((e) => e.number == idQuery),
       side: sideData,
       idList: idList,
       counter: spreadSheetData.accessCounter,
