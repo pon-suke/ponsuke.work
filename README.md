@@ -11,7 +11,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### サイト全体
 
-[![Next.js](https://user-images.githubusercontent.com/48468687/131114447-08c7efb2-5fa7-45d5-bf92-6bdc69007683.png)](https://nextjs.org/)
+[![Next.js](https://user-images.githubusercontent.com/48468687/131114845-cd59da55-a724-4b0f-8552-e42ad270a7bf.png)](https://nextjs.org/)
+
 
 ### アイコン
 
