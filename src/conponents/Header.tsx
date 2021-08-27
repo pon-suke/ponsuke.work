@@ -5,11 +5,8 @@ import Script from "next/script";
 
 const Header: React.FC = () => (
   <>
-    {/* <Script
-      data-ad-client="ca-pub-4852357139979343"
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    ></Script>
-    <AdSense.Google client="ca-pub-4852357139979343" /> */}
+    <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
+    <AdSense.Google client="ca-pub-4852357139979343" slot="4852357139979343" />
     <Link href="/p/1">
       <a>
         <div id="header">
