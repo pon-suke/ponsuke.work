@@ -520,10 +520,10 @@ img.ThumbnailImage {
   }
 
   .comment_header {
-    padding-top: 4%;
+    padding-top: 2%;
   }
 
-  .comment_icon {
+  .comment_block img {
     width: 10%;
   }
 }
