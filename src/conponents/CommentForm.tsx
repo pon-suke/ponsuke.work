@@ -7,17 +7,17 @@ function CommentForm(props) {
   const options = [
     {
       value:
-        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/d62dc282c0774eb3b1f4fd0d9fe266f8/00.png",
+        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/b04438c6486e4b7abc06fbc6f02c6e01/%E9%9C%8A%E5%A4%A2.png",
       label: "霊夢",
     },
     {
       value:
-        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/71bbbeeed27b4da4a8c411594708d4f0/00.png",
+        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/8273abdb272044eda2bcf06afa23b0da/%E9%AD%94%E7%90%86%E6%B2%99.png",
       label: "魔理沙",
     },
     {
       value:
-        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/07b1a497a080480c9a543f04d9c54573/00.png",
+        "https://images.microcms-assets.io/assets/d6d86e72e5224a9dbd45378cc264b6f9/dc0dcae55f564035a224778b82cbabb5/%E5%A6%96%E5%A4%A2.png",
       label: "妖夢",
     },
   ];
