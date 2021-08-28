@@ -21,7 +21,7 @@ function PageNavi({ totalCount, id, Class, old = false }) {
         {[...Array(totalCount)].flatMap((_, i) =>
           lval <= i && i <= rval ? (
             id == i + 1 ? (
-              <span className="current" onClick={jump}>
+              <span key={i} className="current" onClick={jump}>
                 &nbsp;{id}&nbsp;
               </span>
             ) : (
