@@ -10,8 +10,6 @@ function CommentField({ id, comment = false }) {
   if (!comment) {
     comments = comment;
   } else {
-    console.log(false);
-    
     const { data, error } = useSWR(process.env.SS_URL, fetcher);
     if (error) return <div>An error has occurred.</div>;
     if (!data) return <div>Loading...</div>;
@@ -19,8 +17,6 @@ function CommentField({ id, comment = false }) {
       return e.number == id;
     });
   }
-  console.log(comment);
-  
 
   return (
     <>
