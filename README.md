@@ -13,7 +13,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 [![Next.js](https://user-images.githubusercontent.com/48468687/131114845-cd59da55-a724-4b0f-8552-e42ad270a7bf.png)](https://nextjs.org/)
 
-
 ### アイコン
 
 コメント欄のアイコンは[こちら](http://www.nicotalk.com/charasozai_yk.html)からお借りしました。
