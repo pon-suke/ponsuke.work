@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import nprogress from "nprogress"; // NProgressインポート
 import "nprogress/nprogress.css"; // バーのデフォルトスタイルのインポート
-// import "../styles/globals.css";
 
 // バーの設定
 //    showSpinner: バーと一緒にローディングスピナーを表示するかどうか
