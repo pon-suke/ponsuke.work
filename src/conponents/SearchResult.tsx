@@ -7,12 +7,12 @@ let searching = false;
 
 // ヒットした項目をリンクとして表示
 // Highlightを入れておくと検索と一致したところにスタイルを当てられる
-const Hit = ({ hit }: any) => {
+const Hit = ({ hit, onClick }) => {
   return (
     <Link href={`/old/blog/${hit.id}`}>
-      <a className="hover:text-[#06bbbc]">
+      <div onClick={onClick} className="searchItem">
         <Highlight attribute="title" tagName="span" hit={hit} />
-      </a>
+      </div>
     </Link>
   );
 };
@@ -31,8 +31,6 @@ export const SearchResult = connectSearchBox(({ refine, currentRefinement }) => 
 
   // リセットと同時に useCallback でメモ化して無駄なレンダリングを防ぐ
   const handleResetSearchWords = useCallback(() => {
-    console.log("refine");
-    
     refine(""); // クエリを空文字に指定してリセット
   }, [refine]);
 

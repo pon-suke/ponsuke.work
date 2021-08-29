@@ -3,7 +3,7 @@ import Footer from "../../conponents/Footer";
 import Header from "../../conponents/Header";
 import MetaTags from "../../conponents/MetaTags";
 
-function index(params) {
+function index() {
   return (
     <div id="wrapper">
       <MetaTags
@@ -19,15 +19,6 @@ function index(params) {
       <Footer />
     </div>
   );
-}
-
-export async function getServerSideProps({ req }) {
-  console.log(req.headers); //see if you have those headers
-  return {
-    props: {
-      headers: req.headers,
-    },
-  };
 }
 
 
