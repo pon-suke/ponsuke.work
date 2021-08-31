@@ -1,11 +1,27 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 function PageNavi({ totalCount, id, Class, old = false }) {
+  const [width, setWidth] = useState(null);
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    updateWidth();
+    window.addEventListener(`resize`, updateWidth, {
+      capture: false,
+      passive: true,
+    });
+
+    return () => window.removeEventListener(`resize`, updateWidth);
+  });
+
   if (!old) totalCount = Math.ceil(Number(totalCount) / 10);
   id = Number(id);
-  const lval = Math.max(id >= totalCount - 2 ? totalCount - 4 : id - 2, 1) - 1;
-  const rval = Math.min(id <= 2 ? 5 : id + 2, totalCount) - 1;
+  const maxVal = width < 800 ? 3 : 5;
+  const otVal = Math.ceil(maxVal);
+  const lval = Math.max(id >= totalCount - otVal ? totalCount - maxVal + 1 : id - otVal, 1) - 1;
+  const rval = Math.min(id <= otVal ? maxVal : id + otVal, totalCount) - 1;
   const jump = () => {
     const newPage = Number(window.prompt("Type a number", ""));
     if (newPage) location.href = (old ? "/old" : "") + `/p/${newPage}`;
@@ -30,7 +46,7 @@ function PageNavi({ totalCount, id, Class, old = false }) {
               </Link>
             )
           ) : (
-            <></>
+            <React.Fragment key={i}></React.Fragment>
           )
         )}
         <>{rval + 1 == totalCount ? "" : "..."}</>

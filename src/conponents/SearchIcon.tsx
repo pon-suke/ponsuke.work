@@ -1,15 +1,10 @@
-// src/components/icons/SearchIcon.tsx
+// src/components/SearchIcon.tsx
+// 検索アイコン🔍
 
-interface Props {
-  w?: number;
-  h?: number;
-}
-
-export default function Search({ w = 6, h = 6 }: Props): JSX.Element {
+export default function Search(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`w-${w} h-${h} `}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
