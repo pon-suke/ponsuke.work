@@ -39,7 +39,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const offset = 192 - ((params.id ? params.id : 1) - 1) * 10;
-  console.log(offset);
 
   const sideData = await Client.get<ResponseType>({
     endpoint: "side",
