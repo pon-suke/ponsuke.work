@@ -487,6 +487,107 @@ img.ThumbnailImage {
   height: 20px;
 }
 
+/* 検索窓 */
+.searchItem {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+li.ais-Hits-item,
+li.ais-InfiniteHits-item {
+  padding: 0;
+}
+.ais-Hits-item:hover {
+  background-color: #d9ebeb;
+}
+
+.ais-Highlight {
+  font-weight: 600;
+  display: block;
+}
+
+.ais-PoweredBy {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #66cccc;
+  opacity: 0.5;
+}
+
+.modalDialog {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 100;
+  background: #fff;
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 2rem auto 2rem auto;
+  width: 50rem;
+  overflow: auto;
+  max-height: 85vh;
+}
+
+.modalDialog::-webkit-scrollbar {
+  width: 10px;
+  height: 90%;
+}
+.modalDialog::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.modalDialog::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 50, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.modalDialog a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.searchBox {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+}
+
+.searchButton {
+  position: relative;
+  width: 200px;
+  border-radius: 100vh;
+  background: #dfefef;
+  border-color: #66cccc;
+}
+.searchButton svg {
+  width: 25px;
+  padding: 5px;
+  float: left;
+}
+.searchButton span {
+  position: absolute;
+  font-size: medium;
+  padding: 5px;
+  margin: auto;
+  width: 80%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 /* pc版 */
 @media screen and (min-width: 800px) {
   .sp_only {
@@ -526,6 +627,10 @@ img.ThumbnailImage {
   .comment_block img {
     width: 10%;
   }
+
+  .modalDialog {
+    width: 80vw;
+  }
 }
 
 /* iPhone5/SE */
@@ -538,50 +643,4 @@ img.ThumbnailImage {
 hr {
   border-top: 1px solid #bbb;
   color: whitesmoke;
-}
-
-/* 検索窓 */
-.searchItem {
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem;
-  cursor: pointer;
-}
-
-li.ais-Hits-item,
-li.ais-InfiniteHits-item {
-  padding: 0;
-}
-.ais-Hits-item:hover {
-  background-color: #d9ebeb;
-}
-
-.ais-Highlight {
-  font-weight: 600;
-}
-
-.ais-PoweredBy {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.dialogOverlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #66cccc;
-  opacity: 0.5;
-}
-
-.modalDialog {
-  position: relative;
-  z-index: 1;
-  background: #fff;
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  margin: 2rem auto 2rem auto;
-  max-width: 50rem;
 }

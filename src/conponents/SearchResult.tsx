@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { Hits, Highlight, Pagination, connectSearchBox, PoweredBy } from "react-instantsearch-dom";
+import CustomHighlight from "./CustomHighlight";
 import "instantsearch.css/themes/satellite-min.css";
 
 let searching = false;
@@ -11,7 +12,9 @@ const Hit = ({ hit, onClick }) => {
   return (
     <Link href={`/old/blog/${hit.id}`}>
       <div onClick={onClick} className="searchItem">
-        <Highlight attribute="title" tagName="span" hit={hit} />
+        <CustomHighlight attribute={"title"} hit={hit}/>
+        {/* <CustomHighlight attribute={"subTitle"} hit={hit}/> */}
+        <CustomHighlight attribute={"main"} hit={hit} />
       </div>
     </Link>
   );
