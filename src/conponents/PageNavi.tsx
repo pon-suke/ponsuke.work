@@ -18,10 +18,9 @@ function PageNavi({ totalCount, id, Class, old = false }) {
 
   if (!old) totalCount = Math.ceil(Number(totalCount) / 10);
   id = Number(id);
-  const maxVal = width < 800 ? 3 : 5;
-  const otVal = Math.ceil(maxVal);
-  const lval = Math.max(id >= totalCount - otVal ? totalCount - maxVal + 1 : id - otVal, 1) - 1;
-  const rval = Math.min(id <= otVal ? maxVal : id + otVal, totalCount) - 1;
+  const mar = width < 800 ? 1 : 2;
+  const lval = Math.max(id >= totalCount - mar ? totalCount - mar * 2 : id - mar, 1) - 1;
+  const rval = Math.min(id <= mar ? mar * 2 + 1 : id + mar, totalCount) - 1;
   const jump = () => {
     const newPage = Number(window.prompt("Type a number", ""));
     if (newPage) location.href = (old ? "/old" : "") + `/p/${newPage}`;
