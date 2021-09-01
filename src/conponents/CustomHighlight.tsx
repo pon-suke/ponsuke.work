@@ -12,8 +12,6 @@ const Highlight = ({ highlight, attribute, hit}) => {
     return strs[0] + " ... " + strs[strs.length - 1];
   };
 
-  console.log(parsedHit);
-
   return (
     <div>
       {parsedHit.map((part, index) =>

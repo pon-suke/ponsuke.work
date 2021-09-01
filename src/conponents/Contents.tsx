@@ -38,7 +38,7 @@ function Contents(props) {
 
   const cls = props.class + "";
   const caption = props.old
-    ? props.text.split(/日/)[0] + "..."
+    ? props.text.split(/日目/)[0] + "..."
     : props.text.split(/---/)[0] + "...";
   const body = cls.indexOf("articleList")
     ? createInnerHTML(replaceScript(props.text) + "<hr/>")
@@ -63,7 +63,14 @@ function Contents(props) {
                     {e.name}
                     <span>{e.date}</span>
                   </h3>
-                  <div className="comment_body">{e.comment}</div>
+                  <div className="comment_body">
+                    {e.comment.split("\n").map((str, index) => (
+                      <React.Fragment key={index}>
+                        {str}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </div>
                   <hr />
                 </>
               ) : (

@@ -12,7 +12,7 @@ const Hit = ({ hit, onClick }) => {
   return (
     <Link href={`/old/blog/${hit.id}`}>
       <div onClick={onClick} className="searchItem">
-        <CustomHighlight attribute={"title"} hit={hit}/>
+        <CustomHighlight attribute={"title"} hit={hit} />
         {/* <CustomHighlight attribute={"subTitle"} hit={hit}/> */}
         <CustomHighlight attribute={"main"} hit={hit} />
       </div>
@@ -43,7 +43,7 @@ export const SearchResult = connectSearchBox(({ refine, currentRefinement }) => 
     <>
       <div hidden={searching}>
         <Hits hitComponent={hitComponent} />
-        <Pagination />
+        <Pagination totalPages={4} />
         <PoweredBy />
       </div>
     </>
