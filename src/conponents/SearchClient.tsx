@@ -9,7 +9,7 @@ export const algoliaSettings = {
   indexName: "ponsuke_work_old",
 };
 
-let a = 0;
+export const index = algoliaSettings.searchClient.initIndex(algoliaSettings.indexName);
 
 export const searchClient = {
   ...algoliaSettings,
