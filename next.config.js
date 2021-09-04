@@ -8,6 +8,7 @@ module.exports = {
         SS_POST_URL: "https://script.google.com/macros/s/AKfycbwa4kwbrmRLGJ1pZL-gUv1WMhjadTOnhrx_tUhKE3HOC6QYAPIVqQRPDM-izH0KDe9W/exec",
         ALGOLIA_APP_ID: "ROPPC1381S",
         ALGOLIA_API_KEY: "2e62d73ae87dfa349d7da9dbebdefcec",
+        ALGOLIA_ADMIN_KEY: "c6dbe6d9e13350da21b311a7e60ae289",
     },
     async redirects() {
         return [
