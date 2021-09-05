@@ -14,7 +14,7 @@ export default (req, res) => {
   ) {
     // Process a POST request
     console.log("post");
-    console.log(JSON.stringify(req.body));
+    console.log(req.body);
     const newContents = body.contents.new.publishValue;
 
     const objects = [
@@ -47,6 +47,21 @@ export default (req, res) => {
             .saveObjects(objects, { autoGenerateObjectIDIfNotExist: true })
             .then(({ objectIDs }) => {
               console.log(objectIDs);
+            });
+
+          fetch(process.env.SS_POST_URL, {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: "hoge=" + body.id,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
             });
         }
       });
