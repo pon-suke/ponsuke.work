@@ -1,10 +1,27 @@
 import algoliasearch from "algoliasearch";
 
-export default (req, res) => {
+export default async(req, res) => {
   const query = req.query;
   const client = algoliasearch(`${process.env.ALGOLIA_APP_ID}`, `${process.env.ALGOLIA_ADMIN_KEY}`);
   const index = client.initIndex("ponsuke_work_old");
-  const body = req.body;
+  const body = JSON.parse(req.body);
+
+  const test = async (id) => {
+    await fetch(process.env.SS_POST_URL, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: "hoge=" + id,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   let hits = [];
 
@@ -14,20 +31,22 @@ export default (req, res) => {
   ) {
     // Process a POST request
     console.log("post");
-    console.log(req.body);
+    console.log(body.api);
     const newContents = body.contents.new.publishValue;
 
     const objects = [
       {
         UpdatedDate: newContents.updatedAt,
-        title: newContents.title,
-        subTitle: newContents.subTitle,
-        main: newContents.main,
+        title: newContents.title || "",
+        subTitle: newContents.subTitle || "",
+        main: newContents.main || "",
         images: [],
         movies: [],
         id: newContents.id,
       },
     ];
+
+    console.log(objects);
 
     // データがalgoliaに存在するか確認
     index
@@ -48,22 +67,8 @@ export default (req, res) => {
             .then(({ objectIDs }) => {
               console.log(objectIDs);
             });
-
-          fetch(process.env.SS_POST_URL, {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: "hoge=" + body.id,
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Success:", data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
         }
+        // test(body.id);
       });
   } else {
     // Handle any other HTTP method
@@ -71,5 +76,5 @@ export default (req, res) => {
 
   res
     .status(200)
-    .json({ message: `you requested for ${query.auth} `, post: req.body, query: query });
+    .json({ message: `your auth are ${query.auth} `, post: req.body, query: query });
 };
