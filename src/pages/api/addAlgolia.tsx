@@ -1,10 +1,13 @@
 import algoliasearch from "algoliasearch";
 
-export default async(req, res) => {
+export default async (req, res) => {
   const query = req.query;
   const client = algoliasearch(`${process.env.ALGOLIA_APP_ID}`, `${process.env.ALGOLIA_ADMIN_KEY}`);
   const index = client.initIndex("ponsuke_work_old");
-  const body = JSON.parse(req.body);
+  console.log(req.body);
+  let body;
+  if (req.headers["content-type"] == "application/json") body = JSON.parse(req.body || "null");
+  console.log(body);
 
   const test = async (id) => {
     await fetch(process.env.SS_POST_URL, {
@@ -31,7 +34,7 @@ export default async(req, res) => {
   ) {
     // Process a POST request
     console.log("post");
-    console.log(body.api);
+    // console.log(body.api);
     const newContents = body.contents.new.publishValue;
 
     const objects = [
@@ -42,7 +45,7 @@ export default async(req, res) => {
         main: newContents.main || "",
         images: [],
         movies: [],
-        id: newContents.id,
+        id: newContents.id || -1,
       },
     ];
 
@@ -59,6 +62,7 @@ export default async(req, res) => {
         },
       })
       .then(() => {
+        console.log("hits");
         console.log(hits);
         if (hits.length == 0) {
           /******  algoliaに書き込む ******/
@@ -74,7 +78,5 @@ export default async(req, res) => {
     // Handle any other HTTP method
   }
 
-  res
-    .status(200)
-    .json({ message: `your auth are ${query.auth} `, post: req.body, query: query });
+  res.status(200).json({ message: `your auth is ${query.auth} `, post: req.body, query: query });
 };
