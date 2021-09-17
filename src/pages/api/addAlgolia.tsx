@@ -11,10 +11,7 @@ export default async (req, res) => {
 
   let hits = [];
 
-  if (
-    req.method === "POST"
-    && query.auth == "2J5vi1mT8sud"
-  ) {
+  if (req.method === "POST" && query.auth == "2J5vi1mT8sud") {
     /**** Process a POST request ****/
     console.log("post");
     // console.log(body.api);
@@ -65,5 +62,5 @@ export default async (req, res) => {
     // Handle any other HTTP method
   }
 
-  res.status(200).json({ message: `your auth is ${query.auth} `, post: req.body, query: query });
+  res.status(200).json({ query: query, post: req.body });
 };
