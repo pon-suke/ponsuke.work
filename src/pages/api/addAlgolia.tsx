@@ -52,8 +52,9 @@ export default async (req, res) => {
             .then(({ objectIDs }) => {
               console.log(objectIDs);
             });
-        }
-        res.status(200).json({ query: query, post: req.body, hit: hit });
+
+          res.status(200).json({ query: query, post: req.body, hit: hit });
+        } else res.status(200).json({ query: query, post: req.body, hits: hits });
       })
       .catch((error) => {
         console.error("error");
