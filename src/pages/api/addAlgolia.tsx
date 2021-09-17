@@ -4,35 +4,18 @@ export default async (req, res) => {
   const query = req.query;
   const client = algoliasearch(`${process.env.ALGOLIA_APP_ID}`, `${process.env.ALGOLIA_ADMIN_KEY}`);
   const index = client.initIndex("ponsuke_work_old");
-  console.log(req.body);
+  // console.log(req.body);
   let body;
-  if (req.headers["content-type"] == "application/json") body = JSON.parse(req.body || "null");
-  console.log(body);
-
-  const test = async (id) => {
-    await fetch(process.env.SS_POST_URL, {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: "hoge=" + id,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+  if (req.headers["content-type"] == "application/json") body = req.body || "null";
+  console.log(body.id);
 
   let hits = [];
 
   if (
     req.method === "POST"
-    // && query.auth == "2J5vi1mT8sud"
+    && query.auth == "2J5vi1mT8sud"
   ) {
-    // Process a POST request
+    /**** Process a POST request ****/
     console.log("post");
     // console.log(body.api);
     const newContents = body.contents.new.publishValue;
@@ -55,7 +38,6 @@ export default async (req, res) => {
     index
       .browseObjects({
         query: "", // Empty query will match all records
-        filters: "id=" + body.id,
         attributesToRetrieve: ["id"],
         batch: (batch) => {
           hits = hits.concat(batch);
@@ -63,8 +45,10 @@ export default async (req, res) => {
       })
       .then(() => {
         console.log("hits");
-        console.log(hits);
-        if (hits.length == 0) {
+        let hit = hits.find((hit) => hit.id === body.id);
+        console.log(hit);
+        if (!hit) {
+          console.log("save");
           /******  algoliaに書き込む ******/
           index
             .saveObjects(objects, { autoGenerateObjectIDIfNotExist: true })
@@ -72,7 +56,10 @@ export default async (req, res) => {
               console.log(objectIDs);
             });
         }
-        // test(body.id);
+      })
+      .catch((error) => {
+        console.error("error");
+        console.error(error);
       });
   } else {
     // Handle any other HTTP method
