@@ -24,8 +24,7 @@ function Page({ blog, comment, side, id }) {
     return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
   };
   const caption = removeTags(blog.main.split(/日/)[0] + "...");
-  const idList = [...Array(192)].map((_, i) => ({ id: (i+1).toString() }));
-  // console.log(blog);
+  const idList = [...Array(192)].map((_, i) => ({ id: (i + 1).toString() }));
 
   return (
     <>
@@ -51,7 +50,7 @@ function Page({ blog, comment, side, id }) {
         </div>
         {/* <ContentNavi idList={idList} id={id} class="sp_only" /> */}
         <SideContents data={side} />
-        <ContentNavi idList={idList} id={id} totalCount="192" Class="pc_only" old={true}/>
+        <ContentNavi idList={idList} id={id} totalCount="192" Class="pc_only" old={true} />
         <Footer />
       </div>
     </>
