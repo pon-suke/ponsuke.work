@@ -22,7 +22,8 @@ export default async (req, res) => {
         UpdatedDate: newContents.updatedAt,
         title: newContents.title || "",
         subTitle: newContents.subTitle || "",
-        main: newContents.main || "",
+        main:
+          newContents.main.replace("<br>", "\n").replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "") || "",
         images: [],
         movies: [],
         id: newContents.id || -1,
