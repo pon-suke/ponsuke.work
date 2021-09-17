@@ -5,7 +5,7 @@ window.onload = () => {
     if (window.twttr)
       window.twttr.widgets.load(document.getElementById("side"));
 
-    if (gapi && gapi.ytsubscribe)
+    if ((typeof gapi) != "undefined" && gapi.ytsubscribe)
       gapi.ytsubscribe.go(document.getElementById("side"));
 
     const fc2cnt = document.getElementById("fc2Counter");
