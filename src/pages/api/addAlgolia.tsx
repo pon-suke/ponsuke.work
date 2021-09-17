@@ -7,7 +7,7 @@ export default async (req, res) => {
   // console.log(req.body);
   let body;
   if (req.headers["content-type"] == "application/json") body = req.body || "null";
-  console.log(body.id);
+  // console.log(body.id);
 
   let hits = [];
 
