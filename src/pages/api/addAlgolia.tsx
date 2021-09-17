@@ -53,14 +53,17 @@ export default async (req, res) => {
               console.log(objectIDs);
             });
         }
+        res.status(200).json({ query: query, post: req.body, hit: hit });
       })
       .catch((error) => {
         console.error("error");
         console.error(error);
+        res.status(418).json({ error: error });
       });
   } else {
     // Handle any other HTTP method
+    res.status(200).json({ mes: "not post" });
   }
 
-  res.status(200).json({ query: query, post: req.body });
+  // res.status(200).json({ query: query, post: req.body, hits: hits });
 };
