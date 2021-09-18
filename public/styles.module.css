@@ -567,7 +567,7 @@ li.ais-InfiniteHits-item {
 .searchButton {
   position: relative;
   width: 200px;
-  border-radius: 100vh;
+  border-radius: 1vh;
   background: #dfefef;
   border-color: #66cccc;
 }
