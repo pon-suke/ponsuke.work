@@ -23,7 +23,7 @@ export default async (req, res) => {
         title: newContents.title || "",
         subTitle: newContents.subTitle || "",
         main:
-          newContents.main.replace("<br>", "\n").replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "") || "",
+          newContents.main.replace("br", "\n").replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "") || "",
         images: [],
         movies: [],
         id: newContents.id || -1,
