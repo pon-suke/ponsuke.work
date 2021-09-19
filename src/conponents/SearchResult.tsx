@@ -10,7 +10,7 @@ let searching = false;
 // Highlightを入れておくと検索と一致したところにスタイルを当てられる
 const Hit = ({ hit, onClick }) => {
   return (
-    <Link href={`/old/blog/${hit.id}`}>
+    <Link href={(hit.id.length < 4 ? "/old" : "") + `/blog/${hit.id}`}>
       <div onClick={onClick} className="searchItem">
         <CustomHighlight attribute={"title"} hit={hit} />
         {/* <CustomHighlight attribute={"subTitle"} hit={hit}/> */}
