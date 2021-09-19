@@ -23,7 +23,7 @@ export default async (req, res) => {
         title: newContents.title || "",
         subTitle: newContents.subTitle || "",
         main:
-          newContents.main.replace("<br>", "\n").replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "") || "",
+          newContents.main.replace("br", "\n").replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "") || "",
         images: [],
         movies: [],
         id: newContents.id || -1,
@@ -41,7 +41,7 @@ export default async (req, res) => {
           hits = hits.concat(batch);
         },
       })
-      .then(() => {
+      .then(async () => {
         console.log("hits");
         let hit = hits.find((hit) => hit.id === body.id);
         console.log(hit);
@@ -50,12 +50,13 @@ export default async (req, res) => {
           /******  algoliaに書き込む ******/
           index
             .saveObjects(objects, { autoGenerateObjectIDIfNotExist: true })
-            .then(({ objectIDs }) => {
+            .then(async ({ objectIDs }) => {
               console.log(objectIDs);
+              await res
+                .status(200)
+                .json({ query: query, post: req.body, hit: hit, objectIDs: objectIDs });
             });
-
-          res.status(200).json({ query: query, post: req.body, hit: hit });
-        } else res.status(200).json({ query: query, post: req.body, hits: hits });
+        } else await res.status(200).json({ query: query, post: req.body, hits: hits });
       })
       .catch((error) => {
         console.error("error");
