@@ -58,7 +58,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
-  const sideData = await Client.get<ResponseType>({
+  const sideData = await Client.get({
     endpoint: "side",
   });
 
@@ -72,11 +72,12 @@ export async function getStaticProps({ params }) {
 
   // // console.log(spreadSheetData.comment.filter((e) => e.number == id));
 
-  // if (!spreadSheetData) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  console.log(spreadSheetData.data.length);
+  if (!spreadSheetData) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
