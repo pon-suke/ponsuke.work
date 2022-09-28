@@ -43,7 +43,7 @@ function Contents(props) {
   const body = cls.indexOf("articleList")
     ? createInnerHTML(replaceScript(props.text) + "<hr/>")
     : createInnerHTML(
-        `<img class='ThumbnailImage' src=' ${props.img}'>${ReplaceTags(caption)}<hr/>`
+        `<img class='ThumbnailImage' src=' ${props.img}?w=300'>${ReplaceTags(caption)}<hr/>`
       );
 
   return (
