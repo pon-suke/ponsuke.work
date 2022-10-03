@@ -29,7 +29,7 @@ function Page(props) {
     <>
       <div id="wrapper">
         <MetaTags
-          title={"pon suke人生リークBlog"}
+          title={blog.title}
           description={caption}
           keyword={"キーワード"}
           image={blog.thumbnail.url}

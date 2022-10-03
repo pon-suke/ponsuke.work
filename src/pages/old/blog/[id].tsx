@@ -31,7 +31,7 @@ function Page({ blog, comment, side, id }) {
   return (
     <>
       <div id="wrapper">
-        <MetaTags title={"pon suke人生リークBlog"} description={caption} keyword={"キーワード"} image={"/top.jpg"} url={`https://ponsuke.work/old/blog/${blog.id}`} />
+        <MetaTags title={blog.title} description={caption} keyword={"キーワード"} image={"/top.jpg"} url={`https://ponsuke.work/old/blog/${blog.id}`} />
         <Header />
         <div id="main">
           <Contents title={blog.title} subtitle={blog.subTitle} text={blog.main.replace(/\r?\n/g, "<br>")} date={blog.UpdatedDate} class={"maincontent"} />
