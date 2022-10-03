@@ -11,15 +11,15 @@ import CommentField from "../../../conponents/CommentField";
 import path from "path";
 import spreadSheetData from "./old.json";
 
-// interface id {
-//   id: string;
-// }
-// interface ResponseType {
-//   contents: Array<id>;
-//   totalCount: number;
-//   offset: number;
-//   limit: number;
-// }
+interface id {
+  id: string;
+}
+interface ResponseType {
+  contents: Array<id>;
+  totalCount: number;
+  offset: number;
+  limit: number;
+}
 
 function Page({ blog, comment, side, id }) {
   const removeTags = (str) => {
@@ -35,7 +35,7 @@ function Page({ blog, comment, side, id }) {
         <Header />
         <div id="main">
           <Contents title={blog.title} subtitle={blog.subTitle} text={blog.main.replace(/\r?\n/g, "<br>")} date={blog.UpdatedDate} class={"maincontent"} />
-          <CommentField id={id} comment={comment} />
+          <CommentField id={id} />
           <CommentForm id={id} />
         </div>
         {/* <ContentNavi idList={idList} id={id} class="sp_only" /> */}
@@ -58,21 +58,18 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
-  const sideData = await Client.get({
+  const sideData = await Client.get<ResponseType>({
     endpoint: "side",
   });
 
   // const spreadSheetData = await fetch(process.env.SS_URL)
-  // const spreadSheetData = await fetch("https://www.ponsuke.work/old.json")
   //   .then((res) => res.json())
   //   .catch((res) => {
   //     console.log(res);
   //   });
   // console.log("spreadSheetData");
 
-  // // console.log(spreadSheetData.comment.filter((e) => e.number == id));
-
-  console.log(spreadSheetData.data.length);
+  console.log(id);
   if (!spreadSheetData) {
     return {
       notFound: true,

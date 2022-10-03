@@ -4,6 +4,7 @@ import Header from "../../../conponents/Header";
 import Container from "../../../conponents/Container";
 import Footer from "../../../conponents/Footer";
 import { Client } from "../../../conponents/Client";
+import spreadSheetData from "../blog/old.json";
 
 interface ResponseType {
   contents: String;
@@ -44,9 +45,9 @@ export async function getStaticProps({ params }) {
     endpoint: "side",
   });
 
-  const spreadSheetData = await fetch(process.env.SS_URL)
-    .then((res) => res.json())
-    .catch(() => null);
+  // const spreadSheetData = await fetch(process.env.SS_URL)
+  //   .then((res) => res.json())
+  //   .catch(() => null);
 
   if (!spreadSheetData) {
     return {

@@ -45,7 +45,7 @@ function Page(props) {
             date={blog.updatedAt}
             class={"maincontent"}
           />
-          <CommentField id={blog.id} comment={props.comment} />
+          <CommentField id={blog.id} />
           <CommentForm id={blog.id} />
         </div>
         <ContentNavi
@@ -97,9 +97,9 @@ export async function getStaticProps({ params }) {
     queries: { limit: 10e10, fields: "id" },
   });
 
-  const spreadSheetData = await fetch(process.env.SS_URL)
-    .then((res) => res.json())
-    .catch(() => null);
+  // const spreadSheetData = await fetch(process.env.SS_URL)
+  //   .then((res) => res.json())
+  //   .catch(() => null);
 
   if (!data) {
     return {
@@ -110,10 +110,10 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       blog: data,
-      comment: spreadSheetData.comment.filter((e) => e.number == idQuery),
+      // comment: spreadSheetData.comment.filter((e) => e.number == idQuery),
       side: sideData,
       idList: idList,
-      counter: spreadSheetData.accessCounter,
+      // counter: spreadSheetData.accessCounter,
     },
   };
 }
