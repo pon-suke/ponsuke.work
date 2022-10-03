@@ -63,9 +63,9 @@ export async function getStaticProps({ params }) {
     queries: { limit: blog.totalCount, fields: "id" },
   });
 
-  const spreadSheetData = await fetch(process.env.SS_URL)
-    .then((res) => res.json())
-    .catch(() => null);
+  // const spreadSheetData = await fetch(process.env.SS_URL)
+  //   .then((res) => res.json())
+  //   .catch(() => null);
 
   if (!blog) {
     return {
@@ -78,7 +78,6 @@ export async function getStaticProps({ params }) {
       side: sideData,
       params: params,
       idList: idList,
-      counter: spreadSheetData.accessCounter,
     },
   };
 }
