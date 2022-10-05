@@ -7,7 +7,7 @@ import SearchDialog from "./SearchDialog";
 const Header: React.FC = () => (
   <>
     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
-    <AdSense.Google client="ca-pub-4852357139979343" slot="1601568202" />
+    {/* <AdSense.Google client="ca-pub-4852357139979343" slot="1601568202" /> */}
 
     <SearchDialog />
     <Link href="/p/1">
