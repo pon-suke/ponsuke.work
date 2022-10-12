@@ -14,7 +14,7 @@ function SideContents(props) {
           subtitle={d.subtitle}
           text={d.content}
           // date={blog.updatedAt}
-          id="profile"
+          id={d.title == "プロフィール" ? "profile" : ""}
         />
       ))}
       <AccessCounter />
