@@ -1,14 +1,15 @@
 import * as React from "react";
 import Link from "next/link";
-import {Adsense} from "@ctrl/react-adsense";
+import { Adsense } from "@ctrl/react-adsense";
 import Script from "next/script";
 import SearchDialog from "./SearchDialog";
 import Head from "next/head";
 
 const Header: React.FC = () => (
   <>
-    <Head children={""}>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {/* @ts-ignore */}
+    <Head>
+      <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </Head>
     <Adsense client="ca-pub-4852357139979343" slot="1601568202" />
 
