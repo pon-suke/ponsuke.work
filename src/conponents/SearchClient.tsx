@@ -5,7 +5,7 @@ import { MultipleQueriesQuery } from "@algolia/client-search";
 // Algoliaの管理画面から取得できる環境変数を設定
 // APIキーは「Search-Only API Key」の方
 export const algoliaSettings = {
-  searchClient: algoliasearch(`${process.env.ALGOLIA_APP_ID}`, `${process.env.ALGOLIA_API_KEY}`),
+  searchClient: algoliasearch(`${process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}`, `${process.env.NEXT_PUBLIC_ALGOLIA_API_KEY}`),
   indexName: "ponsuke_work_old",
 };
 
