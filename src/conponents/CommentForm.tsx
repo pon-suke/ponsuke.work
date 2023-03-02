@@ -65,7 +65,7 @@ function CommentForm(props) {
       <form
         id="comment_form"
         method="POST"
-        action={process.env.SS_POST_URL}
+        action={process.env.NEXT_PUBLIC_SS_POST_URL}
         target="response"
         onSubmit={commentSending}
       >
