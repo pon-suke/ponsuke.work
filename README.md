@@ -5,11 +5,17 @@
 
 ### エディタ
 
-[microcms](https://ponsuke.microcms.io/)、ここから記事の編集。
+[microcms](https://ponsuke.microcms.io/)
 
 ### サイト全体
 
-[![Next.js](https://user-images.githubusercontent.com/48468687/131114845-cd59da55-a724-4b0f-8552-e42ad270a7bf.png)](https://nextjs.org/)
+[Next.js](https://nextjs.org/)
+
+
+### ホスティング
+
+[AWS](https://aws.amazon.com/)
+
 
 ### アイコン
 
