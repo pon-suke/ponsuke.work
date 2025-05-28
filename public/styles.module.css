@@ -28,6 +28,7 @@ a:active {
 }
 
 body {
+  font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   font-size: 90%;
   text-align: center;
   padding: 0;
